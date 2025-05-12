@@ -1,0 +1,11 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+  {% for batch in cl.queryset %}
+    <li>
+      <a href="{% url 'admin:generate-pdf' batch.id %}" class="addlink">
+        Скачать PDF для партии {{ batch.name }}
+      </a>
+    </li>
+  {% endfor %}
+  {{ block.super }}
+{% endblock %}

@@ -13,6 +13,14 @@ typing-extensions = {version = ">=4", markers = "python_version < \"3.11\""}
 tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
+name = "chardet"
+version = "5.2.0"
+description = "Universal encoding detector for Python 3"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "django"
 version = "5.2.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -28,6 +36,42 @@ tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
+
+[[package]]
+name = "pillow"
+version = "11.2.1"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=8.2)", "sphinx-copybutton", "sphinx-inline-tabs", "sphinxext-opengraph"]
+fpx = ["olefile"]
+mic = ["olefile"]
+test-arrow = ["pyarrow"]
+tests = ["check-manifest", "coverage (>=7.4.2)", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout", "trove-classifiers (>=2024.10.12)"]
+typing = ["typing-extensions"]
+xmp = ["defusedxml"]
+
+[[package]]
+name = "reportlab"
+version = "4.4.0"
+description = "The Reportlab Toolkit"
+category = "main"
+optional = false
+python-versions = "<4,>=3.7"
+
+[package.dependencies]
+chardet = "*"
+pillow = ">=9.0.0"
+
+[package.extras]
+accel = ["rl_accel (>=0.9.0,<1.1)"]
+renderpm = ["rl_renderPM (>=4.0.3,<4.1)"]
+pycairo = ["rlPyCairo (>=0.2.0,<1)", "freetype-py (>=2.3.0,<2.4)"]
+bidi = ["rlbidi"]
+shaping = ["uharfbuzz"]
 
 [[package]]
 name = "sqlparse"
@@ -60,11 +104,14 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "6a3c0caf1268eaace3e4966379c87ad94d9f49f082d381e37e3e8b380e96f69e"
+content-hash = "0b9797c7ff86d0fdce0958dadb550ce9062187113cd9b3a8f5e2bbd5f6fc87a8"
 
 [metadata.files]
 asgiref = []
+chardet = []
 django = []
+pillow = []
+reportlab = []
 sqlparse = []
 typing-extensions = []
 tzdata = []
