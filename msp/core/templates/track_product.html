@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Отслеживание продукции</title>
+</head>
+<body>
+    <h1>Отслеживание для кода: {{ marking_code.code }}</h1>
+
+    <h2>История движения:</h2>
+    <ul>
+        {% for movement in movements %}
+            <li>{{ movement.timestamp }} — {{ movement.location }}</li>
+        {% empty %}
+            <li>Нет записей о движении.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить новую точку:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить точку</button>
+    </form>
+</body>
+</html>

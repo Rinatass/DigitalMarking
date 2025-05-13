@@ -8,6 +8,8 @@ authors = ["Rinat <oblom.ru@gmail.com>"]
 python = "^3.10"
 Django = "^5.2.1"
 reportlab = "^4.4.0"
+qrcode = "^8.2"
+djangorestframework = "^3.16.0"
 
 [tool.poetry.dev-dependencies]
 

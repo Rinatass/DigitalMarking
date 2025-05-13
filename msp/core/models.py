@@ -30,6 +30,7 @@ class MovementLog(models.Model):
     def __str__(self):
         return f'{self.code.code} moved to {self.location} at {self.timestamp}'
 
+
 class ProductBatch(models.Model):
     name = models.CharField(max_length=255)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='batches')
@@ -38,3 +39,11 @@ class ProductBatch(models.Model):
 
     def __str__(self):
         return f'Партия {self.name} ({self.product.name}) на {self.quantity} шт.'
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
