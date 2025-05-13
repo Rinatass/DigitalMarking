@@ -53,3 +53,28 @@ class BatchCodesView(APIView):
         codes = batch.codes.all()
         serializer = MarkingCodeShortSerializer(codes, many=True)
         return Response(serializer.data)
+
+class DashboardStatsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        batches_count = ProductBatch.objects.count()
+        codes_count = MarkingCode.objects.count()
+        moved_codes_count = MarkingCode.objects.filter(movements__isnull=False).distinct().count()
+        latest_movements = MovementLog.objects.order_by('-timestamp')[:5]
+
+        latest = [
+            {
+                'code': movement.code.code,
+                'location': movement.location,
+                'timestamp': movement.timestamp.strftime('%d.%m.%Y %H:%M:%S')
+            }
+            for movement in latest_movements
+        ]
+
+        return Response({
+            'batches_count': batches_count,
+            'codes_count': codes_count,
+            'moved_codes_count': moved_codes_count,
+            'latest_movements': latest
+        })

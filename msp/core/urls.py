@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/locations/', api_views.LocationListView.as_view(), name='api-locations'),
     path('api/batches/', api_views.ProductBatchListView.as_view(), name='api-batches'),
     path('api/batches/<int:batch_id>/codes/', api_views.BatchCodesView.as_view(), name='api-batch-codes'),
+    path('api/dashboard/', api_views.DashboardStatsView.as_view(), name='api-dashboard'),
 ]

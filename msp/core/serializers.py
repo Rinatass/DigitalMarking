@@ -3,9 +3,14 @@ from .models import MarkingCode, MovementLog, Location, ProductBatch
 
 
 class MovementLogSerializer(serializers.ModelSerializer):
+    timestamp_formatted = serializers.SerializerMethodField()
+
     class Meta:
         model = MovementLog
-        fields = ['location', 'timestamp', 'moved_by']
+        fields = ['location', 'timestamp', 'timestamp_formatted']
+
+    def get_timestamp_formatted(self, obj):
+        return obj.timestamp.strftime('%d.%m.%Y %H:%M:%S')
 
 
 class MarkingCodeSerializer(serializers.ModelSerializer):
