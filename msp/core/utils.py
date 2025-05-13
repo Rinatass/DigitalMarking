@@ -15,7 +15,7 @@ def generate_pdf_with_codes(codes):
     y = height - 40 * mm
 
     for code in codes:
-        full_url = f"{settings.BASE_URL}/track/{code}/"
+        full_url = f"{settings.FRONT_URL}/track/{code}/"
 
         qr_img = qrcode.make(full_url)
         qr_io = BytesIO()
