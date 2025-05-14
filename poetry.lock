@@ -99,6 +99,14 @@ testing = ["gevent", "eventlet", "coverage", "pytest", "pytest-cov"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+name = "mysqlclient"
+version = "2.2.7"
+description = "Python interface to MySQL"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
 name = "packaging"
 version = "25.0"
 description = "Core utilities for Python packages"
@@ -189,7 +197,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "98e0ce65305ff6b693c76148b320e64f9e3bb6e9afd37bdbfadb4de003de4be7"
+content-hash = "e950f496ac8fa8d5243547e49c854c8ccbd417e7864ac7e510b98c461cf90e98"
 
 [metadata.files]
 asgiref = []
@@ -200,6 +208,7 @@ django = []
 django-cors-headers = []
 djangorestframework = []
 gunicorn = []
+mysqlclient = []
 packaging = []
 pillow = []
 qrcode = []
