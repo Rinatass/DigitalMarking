@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y build-essential libmariadb-dev gcc
 
 RUN pip install poetry
 
-WORKDIR /app
+WORKDIR /app/msp
 
 COPY pyproject.toml poetry.lock ./
 
