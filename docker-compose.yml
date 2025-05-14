@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: marking_backend
-    command: gunicorn msp.marking_system.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn --chdir msp marking_system.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./msp/staticfiles:/app/msp/staticfiles
     environment:
@@ -35,7 +35,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./staticfiles:/static
+      - ./msp/staticfiles:/static
     depends_on:
       - web
 
