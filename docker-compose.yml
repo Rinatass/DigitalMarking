@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 services:
   db:
@@ -16,7 +16,7 @@ services:
       - "3306:3306"
 
   web:
-    build: .
+    build: msp
     container_name: marking_backend
     command: gunicorn marking_system.wsgi:application --bind 0.0.0.0:8000
     ports:

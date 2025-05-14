@@ -8,9 +8,9 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry config virtualenvs.create false && poetry install --no-dev
+RUN poetry config virtualenvs.create false && poetry install --only main --no-root
 
-COPY . .
+COPY msp .
 
 EXPOSE 8000
 

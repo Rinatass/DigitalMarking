@@ -12,6 +12,7 @@ qrcode = "^8.2"
 djangorestframework = "^3.16.0"
 django-cors-headers = "^4.7.0"
 dj-database-url = "^2.3.0"
+gunicorn = "^23.0.0"
 
 [tool.poetry.dev-dependencies]
 
